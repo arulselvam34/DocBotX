@@ -1,6 +1,6 @@
-# 📄 Document Chat with Groq
+# 🤖 DocBotX
 
-A powerful document chatbot built with Streamlit and Groq API that allows you to upload documents and chat with them using advanced language models.
+A powerful AI document chatbot built with Streamlit and Groq API that allows you to upload documents and chat with them using advanced language models.
 
 ## 🚀 Features
 
@@ -14,8 +14,8 @@ A powerful document chatbot built with Streamlit and Groq API that allows you to
 
 ### 1. Clone the repository
 ```bash
-git clone <your-repo-url>
-cd rag-chatgpt
+git clone https://github.com/arulselvam34/DocBotX.git
+cd DocBotX
 ```
 
 ### 2. Install dependencies

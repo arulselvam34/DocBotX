@@ -9,7 +9,7 @@ from langchain.memory import (ConversationBufferMemory,
 from chains.conversational_chain import ConversationalChain
 from chains.conversational_retrieval_chain import (
     TEMPLATE, ConversationalRetrievalChain)
-from knowledge_set import compute_knowledge_vectorstore
+
 from streaming import StreamHandler
 from free_models import get_groq_llm, get_free_embeddings, get_available_groq_models
 
@@ -57,9 +57,9 @@ def groq_model_list():
 
 class StreamlitChatView:
     def __init__(self) -> None:
-        st.set_page_config(page_title="Document Chat with Groq", page_icon="📄", layout="wide")
+        st.set_page_config(page_title="DocBotX", page_icon="🤖", layout="wide")
         with st.sidebar:
-            st.title("📄 Document Chat")
+            st.title("🤖 DocBotX")
             with st.expander("Model parameters"):
                 self.model_name = st.selectbox("Groq Model:", options=groq_model_list())
                 self.temperature = st.slider("Temperature", min_value=0., max_value=2., value=0.7, step=0.01)
@@ -70,9 +70,8 @@ class StreamlitChatView:
             with st.expander("Prompts"):
                 curdate = datetime.datetime.now().strftime("%Y-%m-%d")
                 model_name = self.model_name.replace('-turbo', '').upper()
-                system_message = (f"You are ChatGPT, a large language model trained by OpenAI, "
-                                  f"based on the {model_name} architecture.\n"
-                                  f"Knowledge cutoff: 2021-09\n"
+                system_message = (f"You are DocBotX, an AI assistant powered by {model_name} via Groq API. "
+                                  f"You help users by answering questions about uploaded documents.\n"
                                   f"Current date: {curdate}\n")
                 self.system_message = st.text_area("System message", value=system_message)
                 self.context_prompt = st.text_area("Context prompt", value=TEMPLATE)
